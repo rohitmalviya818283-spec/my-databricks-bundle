@@ -18,13 +18,11 @@ jobs:
         with:
           python-version: '3.10'
 
-      - name: Install Databricks CLI
-        run: |
-          pip install --upgrade pip
-          pip install databricks-cli>=0.205
+      - name: Install Databricks SDK
+        run: pip install databricks-sdk
 
-      - name: Deploy bundle to Databricks
+      - name: Deploy bundle
         env:
           DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
           DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
-        run: databricks bundle deploy -t dev
+        run: python deploy_bundle.py
