@@ -19,7 +19,9 @@ jobs:
           python-version: '3.10'
 
       - name: Install Databricks CLI
-        run: pip install databricks-cli
+        run: |
+          pip install --upgrade pip
+          pip install databricks-cli>=0.205
 
       - name: Deploy bundle to Databricks
         env:
