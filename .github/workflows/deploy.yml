@@ -21,9 +21,8 @@ jobs:
       - name: Install Databricks CLI
         run: pip install databricks-cli
 
-      - name: Authenticate with Databricks
-        run: |
-          databricks configure --host ${{ secrets.DATABRICKS_HOST }} --token ${{ secrets.DATABRICKS_TOKEN }}
-
-      - name: Deploy bundle
+      - name: Deploy bundle to Databricks
+        env:
+          DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
+          DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
         run: databricks bundle deploy -t dev
