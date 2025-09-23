@@ -1,0 +1,13 @@
+bundle:
+  name: my-databricks-bundle
+  version: 1.0.0
+
+targets:
+  dev:
+    default: true
+    workspace:
+      host: https://dbc-e2b8c4b7-2b06.cloud.databricks.com
+
+  prod:
+    workspace:
+      host: https://dbc-e2b8c4b7-2b06.cloud.databricks.com
